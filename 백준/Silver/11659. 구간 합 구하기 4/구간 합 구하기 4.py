@@ -1,15 +1,13 @@
 import sys
 
-count, need = map(int, sys.stdin.readline().rstrip().split())
-numbers = tuple(map(int, sys.stdin.readline().rstrip().split()))
-sums = [numbers[0]]
+n, m = map(int, sys.stdin.readline().rstrip().split())
+l = list(map(int, sys.stdin.readline().rstrip().split()))
+s = [0]
+a = 0
+for i in l:
+    a += i
+    s.append(a)
 
-for i in range(1, count):
-    sums.append(sums[i - 1] + numbers[i])
-    
-for _ in range(need):
+for _ in range(m):
     start, end = map(int, sys.stdin.readline().rstrip().split())
-    if start == 1:
-        print(sums[end - 1])
-    else:
-        print(sums[end - 1] - sums[start - 2])
+    print(s[end] - s[start - 1])
