@@ -1,10 +1,10 @@
-permissions: write-all
-
 name: CI
 
 on:
   push:
     branches: [ "main" ]
+permissions:
+    contents: write
 
 jobs:
   build:
