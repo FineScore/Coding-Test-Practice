@@ -10,13 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
+        persist-credentials: false
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.WRITE_TOKEN }}
         branch: FineScore
         repository: Coding-Test-Random-Defence/Bronze-4-to-Silver-5
         directory: ./
