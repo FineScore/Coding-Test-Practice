@@ -36,10 +36,10 @@ class Main {
             } else {
                 min = price[i];
                 t += length[i];
-                
-                if (i == price.length - 2) {
-                    lowcost += min * t;
-                }
+            }
+
+            if (i == price.length - 2) {
+                lowcost += min * t;
             }
         }
 
