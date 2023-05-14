@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+   build:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: creates output
+        run:  sh ./build.sh
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: .
+          destination-github-username: 'Coding-Test-Random-Defence'
+          destination-repository-name: 'Bronze-4-to-Silver-5'
+          target-branch: FineScore
