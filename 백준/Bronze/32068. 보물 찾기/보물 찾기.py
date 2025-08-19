@@ -6,11 +6,8 @@ T = int(input().rstrip())
 
 for _ in range(T):
     L, R, S = map(int, input().rstrip().split())
-    count = 1
-    while L != S and R != S:
-        if count % 2 != 0:
-            S += count
-        else:
-            S -= count
-        count += 1
-    print(count)
+    if (L + R) / 2 > S:
+        S = (S - L) * 2 + 1
+    else:
+        S = (R - S) * 2
+    print(S)
